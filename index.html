@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helena Nunes | Portfolio</title>
+    <style>
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            margin: 0; padding: 0; color: #1d1d1f; background-color: #ffffff;
+        }
+
+        .header-title {
+            text-align: center;
+            font-size: 3.5rem;
+            padding: 80px 20px 40px;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .main-container {
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 60px;
+            padding: 40px 20px;
+            align-items: flex-start;
+        }
+
+        .left-column { flex: 1; max-width: 380px; }
+        .left-column img {
+        width: 100%;
+        aspect-ratio: 1 / 1;    /* Forces the image to be a perfect square */
+        object-fit: cover;      /* Prevents the image from stretching */
+       border-radius: 50%;     /* This makes the square a perfect circle */
+       border: 4px solid #fff; /* Optional: adds a nice white border around the circle */
+       box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Adds a soft shadow */
+       }
+        
+        .right-column { flex: 1.5; }
+        
+        .topic-box { margin-bottom: 50px; }
+        .topic-box h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        .topic-box p { 
+            font-size: 1.15rem; 
+            line-height: 1.6; 
+            color: #444; 
+            margin: 0; 
+            text-align: justify; 
+        }
+        
+        .cv-link {
+            display: inline-block;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.15rem;
+            border: 2px solid #0066cc;
+            padding: 10px 20px;
+            transition: all 0.2s;
+            border-radius: 4px;
+        }
+        .cv-link:hover { background: #0066cc; color: white; }
+
+        .baseboard {
+            clear: both;
+            width: 100%;
+            text-align: center;
+            padding: 60px 0;
+            margin-top: 80px;
+            background-color: #f5f5f7;
+            border-top: 1px solid #e5e5e5;
+        }
+        .baseboard p { margin: 5px 0; color: #1d1d1f; font-size: 1rem; }
+        .baseboard a { color: #0066cc; text-decoration: none; }
+
+       
+        @media (max-width: 768px) {
+            .main-container { flex-direction: column; align-items: center; text-align: center; }
+            .header-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="header-title">HELENA NUNES</h1>
+
+    <div class="main-container">
+        
+        <div class="left-column">
+            <img src="https://lh3.googleusercontent.com/u/0/d/10spF3zvw2TPvCRREpHh3WOw9qRaTKpbL" alt="Helena Nunes">
+        </div>
+
+        <div class="right-column">
+            
+            <div class="topic-box">
+                <h2>About Me</h2>
+                <p>
+                    I am a versatile professional with a unique background in <b>Cinematic Art</b>  
+                    and a strong technical foundation in <b>JavaScript, Apps Script, and C++</b>. 
+                    With over three years of experience in content review at Genpact, 
+                    I specialize in <b>data visualization and integrated automation</b>. 
+                    Recently, I served as a <b>Lean Ambassador</b>, bridging the gap between operational 
+                    teams and Black Belt efficiency standards.
+                </p>
+            </div>            
+
+            <div class="topic-box">
+                <h2>CV</h2>
+                <a href="https://drive.google.com/file/d/11cDophQqkaR70BvoHz9_ji7fZHJ42zdr/view" class="cv-link" target="_blank">Download Curriculum Vitae</a>
+            </div>
+
+            <div class="topic-box">
+                <h2>Projects</h2>
+                <p>
+                    I focus on creating interactive experiences and automation tools. From developing games using <b>JavaScript</b>, <b>HTML</b>, and <b>CSS</b>, to building Custom-built search bar within <b>Google Sheets</b>, my goal is to transform data and programming logic into functional, visual solutions that streamline access to information.
+                </p>
+                <br>
+                <a href="projects.html" class="cv-link">View All My Projects &rarr;</a>
+            </div>
+
+        </div> </div> <footer class="baseboard">
+        <p>
+            <b>Email:</b> lenanunes10@hotmail.com  | 
+            <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/helena-viveiros-6a60371b6" target="_blank">helena-nunes</a> 
+        </p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #86868b;">
+            Lisboa, Portugal 
+        </p>
+    </footer>
+
+</body>
+</html>
