@@ -20,20 +20,41 @@
         .project-card h2 { margin-top: 0; border-bottom: 2px solid #000; padding-bottom: 10px; }
         
         
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            color: #0071e3;
+            border: 2px solid #0071e3;
+            padding: 8px 16px;
+            border-radius: 22px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .lang-switch:hover { 
+            background-color: #0071e3; 
+            color: white; 
+        }
+
         .btn-view {
             display: block;         
             width: fit-content;     
             margin: 25px auto 0;     
-            color: #0066cc;
-           text-decoration: none;
-           font-weight: bold;
-           border: 1px solid #0066cc;
-           padding: 10px 25px;     
-           border-radius: 4px;
-           transition: all 0.3s ease; 
-       }
+            color: #0071e3; /* Updated to Apple Blue */
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #0071e3; /* Updated to 2px for Apple Look */
+            padding: 10px 25px;     
+            border-radius: 22px; /* Updated to Pill Shape */
+            background-color: #ffffff;
+            transition: all 0.3s ease; 
+        }
         
-        .btn-view:hover { background: #0066cc; color: white; }
+        .btn-view:hover { background: #0071e3; color: white; }
 
         .back-link { display: block; text-align: center; margin-bottom: 40px; color: #0066cc; text-decoration: none; font-weight: bold; }
 
@@ -43,26 +64,27 @@
 </head>
 <body>
 
-    <h1 class="header-title">MY PROJECTS</h1>
-    <a href="index.html" class="back-link">&larr; Back to Home</a>
+    <button class="lang-switch" onclick="toggleLanguage()">EN | PT</button>
+
+    <h1 class="header-title" id="main-title">MY PROJECTS</h1>
+    <a href="index.html" class="back-link" id="back-home">&larr; Back to Home</a>
 
     <div class="main-container">
         <div class="project-card">
-             <h2>HTML Interface - Maze of Riddles</h2>
-            <p>Utilizing <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b>, I developed an interactive web platform featuring three games: the classics Tic-Tac-Toe and Hangman, along with a custom-built original game. The website is fully localized, offering a seamless experience in both <b>Portuguese</b> and <b>English</b>. </p>
-            <a href="https://lenanunes10-del.github.io/Laboratorio-dos-Jogos/" class="btn-view" target="_blank">Open Project</a>
+             <h2 id="p1-title">HTML Interface - Game Lab</h2>
+            <p id="p1-desc">Utilizing <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b>, I developed an interactive web platform featuring three games: the classics Tic-Tac-Toe and Hangman, along with a custom-built original game, Maze of Riddles. The website is fully localized, offering a seamless experience in both <b>Portuguese</b> and <b>English</b>. </p>
+            <a href="https://lenanunes10-del.github.io/Laboratorio-dos-Jogos/" class="btn-view" id="p1-btn" target="_blank">Open Project</a>
         </div>
             
         <div class="project-card">
-           <h2>Google Sheets Customized Search Bar</h2>
-            <p>Using <b>JavaScript</b> and <b>HTML</b> I created a customized search bar inside the Google Sheet.To use the search bar, click "Search with me" in the top menu and select "Open Search bar". You must click <b>Allow</b> on the Google authorization prompts for the script to access and highlight the data.</p>
-            <a href="https://docs.google.com/spreadsheets/d/1XpMG4CW-IdWj4GTaAoQORl9xfFbh6HFXjlgLOV-l7q8/edit?gid=0#gid=0" class="btn-view" target="_blank">Open Project</a>
+           <h2 id="p2-title">Google Sheets Customized Search Bar</h2>
+            <p id="p2-desc">Using <b>JavaScript</b> and <b>HTML</b> I created a customized search bar inside the Google Sheet.To use the search bar, click "Search with me" in the top menu and select "Open Search bar". You must click <b>Allow</b> on the Google authorization prompts for the script to access and highlight the data.</p>
+            <a href="https://docs.google.com/spreadsheets/d/1XpMG4CW-IdWj4GTaAoQORl9xfFbh6HFXjlgLOV-l7q8/edit?gid=0#gid=0" class="btn-view" id="p2-btn" target="_blank">Open Project</a>
         </div>
-
-</div>
+    </div>
 
     <footer class="baseboard">
-        <p><b>Email:</b> lenanunes10@hotmail.com  | 
+        <p><b>Email:</b> lenanunes10@hotmail.com  |  
             <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/helena-viveiros-6a60371b6" target="_blank">helena-nunes</a> 
         </p>
         <p style="font-size: 0.8rem; margin-top: 10px; color: #86868b;">
@@ -70,5 +92,34 @@
         </p>
     </footer>
 
+    <script>
+        let currentLang = 'en';
+        function toggleLanguage() {
+            const mainTitle = document.getElementById('main-title');
+            const backHome = document.getElementById('back-home');
+            const p1Title = document.getElementById('p1-title');
+            const p1Desc = document.getElementById('p1-desc');
+            const p1Btn = document.getElementById('p1-btn');
+            const p2Title = document.getElementById('p2-title');
+            const p2Desc = document.getElementById('p2-desc');
+            const p2Btn = document.getElementById('p2-btn');
+
+            if (currentLang === 'en') {
+                mainTitle.innerText = "OS MEUS PROJETOS";
+                backHome.innerHTML = "&larr; Voltar ao Início";
+                p1Title.innerText = "Interface HTML - Laboratorio de Jogos";
+                p1Desc.innerHTML = "Utilizando <b>HTML</b>, <b>CSS</b> e <b>JavaScript</b>, desenvolvi uma plataforma web interativa com três jogos: os clássicos Galo e Enforcado, juntamente com um jogo original personalizado, Labirinto de Enigmas. O site está totalmente localizado, oferecendo uma experiência fluida tanto em <b>Português</b> como em <b>Inglês</b>.";
+                p1Btn.innerText = "Abrir Projeto";
+                p2Title.innerText = "Barra de Pesquisa Personalizada no Google Sheets";
+                p2Desc.innerHTML = "Utilizando <b>JavaScript</b> e <b>HTML</b>, criei uma barra de pesquisa personalizada dentro do Google Sheets. Para utilizar a barra, clique em 'Search with me' no menu superior e selecione 'Open Search bar'. Deve clicar em <b>Permitir</b> nos avisos de autorização do Google para que o script possa aceder e destacar os dados.";
+                p2Btn.innerText = "Abrir Projeto";
+                currentLang = 'pt';
+            } else {
+                location.reload();
+            }
+        }
+    </script>
+
 </body>
 </html>
+   
