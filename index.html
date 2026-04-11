@@ -10,6 +10,27 @@
             margin: 0; padding: 0; color: #1d1d1f; background-color: #ffffff;
         }
 
+    
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            color: #0071e3;
+            border: 2px solid #0071e3;
+            padding: 8px 16px;
+            border-radius: 22px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .lang-switch:hover { 
+            background-color: #0071e3; 
+            color: white; 
+        }
+
         .header-title {
             text-align: center;
             font-size: 3.5rem;
@@ -30,13 +51,13 @@
 
         .left-column { flex: 1; max-width: 380px; }
         .left-column img {
-        width: 100%;
-        aspect-ratio: 1 / 1;    
-        object-fit: cover;      
-       border-radius: 50%;    
-       border: 4px solid #fff; 
-       box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
-       }
+            width: 100%;
+            aspect-ratio: 1 / 1;    
+            object-fit: cover;      
+            border-radius: 50%;    
+            border: 4px solid #fff; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+        }
         
         .right-column { flex: 1.5; }
         
@@ -57,18 +78,25 @@
             text-align: justify; 
         }
         
+       
         .cv-link {
             display: inline-block;
-            color: #0066cc;
+            margin-top: 15px;
+            background-color: #ffffff;
+            color: #0071e3;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.15rem;
-            border: 2px solid #0066cc;
+            border: 2px solid #0071e3;
             padding: 10px 20px;
-            transition: all 0.2s;
-            border-radius: 4px;
+            transition: all 0.3s ease;
+            border-radius: 22px;
+            cursor: pointer;
         }
-        .cv-link:hover { background: #0066cc; color: white; }
+        .cv-link:hover { 
+            background: #0071e3; 
+            color: white; 
+        }
 
         .baseboard {
             clear: both;
@@ -82,7 +110,6 @@
         .baseboard p { margin: 5px 0; color: #1d1d1f; font-size: 1rem; }
         .baseboard a { color: #0066cc; text-decoration: none; }
 
-       
         @media (max-width: 768px) {
             .main-container { flex-direction: column; align-items: center; text-align: center; }
             .header-title { font-size: 2.5rem; }
@@ -90,6 +117,8 @@
     </style>
 </head>
 <body>
+
+    <button class="lang-switch" onclick="toggleLanguage()">EN | PT</button>
 
     <h1 class="header-title">HELENA NUNES</h1>
 
@@ -102,8 +131,8 @@
         <div class="right-column">
             
             <div class="topic-box">
-                <h2>About Me</h2>
-                <p>
+                <h2 id="about-title">About Me</h2>
+                <p id="about-text">
                     I am a versatile professional with a unique background in <b>Cinematic Art</b>  
                     and a strong technical foundation in <b>JavaScript, Apps Script, and C++</b>. 
                     With over three years of experience in content review at Genpact, 
@@ -115,21 +144,24 @@
 
             <div class="topic-box">
                 <h2>CV</h2>
-                <a href="https://drive.google.com/file/d/1_TFtWrHUz3p38BpTzNoX0uEU5lfuV9YG/view" class="cv-link" target="_blank">Download Curriculum Vitae</a>
+                <a href="https://drive.google.com/file/d/1_TFtWrHUz3p38BpTzNoX0uEU5lfuV9YG/view" class="cv-link" id="cv-btn" target="_blank">Download Curriculum Vitae</a>
             </div>
 
             <div class="topic-box">
-                <h2>Projects</h2>
-                <p>
+                <h2 id="projects-title">Projects</h2>
+                <p id="projects-text">
                     I focus on creating interactive experiences and automation tools. From developing games using <b>JavaScript</b>, <b>HTML</b>, and <b>CSS</b>, to building Custom-built search bar within <b>Google Sheets</b>, my goal is to transform data and programming logic into functional, visual solutions that streamline access to information.
                 </p>
                 <br>
-                <a href="projects.html" class="cv-link">View All My Projects &rarr;</a>
+                <a href="projects.html" class="cv-link" id="projects-btn">View All My Projects →</a>
             </div>
 
-        </div> </div> <footer class="baseboard">
+        </div> 
+    </div> 
+
+    <footer class="baseboard">
         <p>
-            <b>Email:</b> lenanunes10@hotmail.com  | 
+            <b>Email:</b> lenanunes10@hotmail.com  |  
             <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/helena-viveiros-6a60371b6" target="_blank">helena-nunes</a> 
         </p>
         <p style="font-size: 0.8rem; margin-top: 10px; color: #86868b;">
@@ -137,5 +169,28 @@
         </p>
     </footer>
 
+    <script>
+        let currentLang = 'en';
+        function toggleLanguage() {
+            const aboutTitle = document.getElementById('about-title');
+            const aboutText = document.getElementById('about-text');
+            const projectsTitle = document.getElementById('projects-title');
+            const projectsText = document.getElementById('projects-text');
+            const cvBtn = document.getElementById('cv-btn');
+            const projectsBtn = document.getElementById('projects-btn');
+
+            if (currentLang === 'en') {
+                aboutTitle.innerText = "Sobre Mim";
+                aboutText.innerHTML = "Sou uma profissional versátil com um percurso único em <b>Arte Cinematográfica</b> e uma base técnica sólida em <b>JavaScript, Apps Script e C++</b>. Com mais de três anos de experiência em revisão de conteúdo na Genpact, especializo-me em <b>visualização de dados e automação integrada</b>. Recentemente, servi como <b>Lean Ambassador</b>, ligando equipas operacionais aos padrões de eficiência Black Belt.";
+                projectsTitle.innerText = "Projetos";
+                projectsText.innerHTML = "Foco-me na criação de experiências interativas e ferramentas de automação. Desde o desenvolvimento de jogos usando <b>JavaScript</b>, <b>HTML</b> e <b>CSS</b>, até à construção de barras de pesquisa personalizadas no <b>Google Sheets</b>, o meu objetivo é transformar dados e lógica de programação em soluções funcionais e visuais.";
+                cvBtn.innerText = "Descarregar Curriculum Vitae";
+                projectsBtn.innerText = "Ver Meus Projetos →";
+                currentLang = 'pt';
+            } else {
+                location.reload(); 
+            }
+        }
+    </script>
 </body>
 </html>
